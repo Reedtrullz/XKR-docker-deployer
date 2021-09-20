@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+  kryptokrona:
+    container_name: kryptokrona
+    hostname: kryptokrona
+    image: kryptokrona
+    restart: always
+    volumes:
+      - /<store-blockchain-here>:/root/.kryptokrona
+    ports:
+      - 11897:11897
+      - 11898:11898
+    environment:
+      - P2P_PORT=11897
+      - RPC_PORT=11898
+      - FEE_AMOUNT=100
+      - FEE_ADDR=<address-to-your-wallet>
